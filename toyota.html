@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link rel="stylesheet" href="toyota.css" />
+    <title>customer information</title>
+  </head>
+
+  <body onload="document.toyotaForm.userID.focus();">
+    <div class="container outerBox">
+      <div class="container">
+        <form action="computation" name="toyotaForm" method="POST" onsubmit="return validData();">
+          <div class="row">
+            <div class="col-sm-6">
+              <fieldset class="border p-2">
+                <legend class="w-auto">Customer Information</legend>
+                <table>
+                  <tr>
+                    <td><label for="customer_id">Customer ID:</label></td>
+                    <td>
+                      <input
+                        type="text"
+                        name="userID"
+                        id="customerId"
+                        style="width: 130px"
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><label for="name">Name:</label></td>
+                    <td>
+                      <input
+                        type="text"
+                        name="name"
+                        id="username"
+                        style="width: 270px"
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><label for="state">State:</label></td>
+                    <td>
+                      <input
+                        type="text"
+                        name="address"
+                        id="state"
+                        style="width: 130px"
+                      />
+                      <input
+                        type="checkbox"
+                        name="retailer"
+                        id="retail"
+                        checked
+                        style="margin-left: 10px"
+                      /><label for="retail">Retail Customer</label>
+                    </td>
+                  </tr>
+                </table>
+              </fieldset>
+            </div>
+            <div class="col-sm-6">
+              <fieldset class="border p-2" style="height: 165px">
+                <table>
+                  <legend class="w-auto">Shipping</legend>
+                  <tr>
+                    <td>
+                      <input
+                        type="radio"
+                        value="UPS"
+                        checked
+                        name="shipping"
+                      /><label for="ups">UPS:</label>
+                    </td>
+                    <td>
+                      <input
+                        type="radio"
+                        value="Fed Ex Ground"
+                        name="shipping"
+                      /><label for="fed_ex">Fed Ex Ground:</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input
+                        type="radio"
+                        value="U.S Portal Air"
+                        name="shipping"
+                      /><label for="us_portal">U.S Portal Air</label>
+                    </td>
+                    <td>
+                      <input
+                        type="radio"
+                        value="Fed Ex Air"
+                        name="shipping"
+                      /><label for="fed_ex_air">Fed Ex Air:</label>
+                    </td>
+                  </tr>
+                </table>
+              </fieldset>
+            </div>
+          </div>
+          <div class="row" ; style="margin-top: 20px">
+            <div class="col-lg-6">
+              <fieldset class="border p-2">
+                <legend class="w-auto">Part Ordered</legend>
+                <table>
+                  <tr>
+                    <td><label for="part_number">Part Number:</label></td>
+                    <td><input type="text" name="part_number" id="part" /></td>
+                  </tr>
+                  <tr>
+                    <td><label for="description">Description:</label></td>
+                    <td><input type="text" id="description" /></td>
+                  </tr>
+                  <tr>
+                    <td><label for="price">Price Per Part:</label></td>
+                    <td>
+                      <input
+                        type="text"
+                        name="price"
+                        id="price"
+                        style="width: 130px"
+                      />
+                      <label for="quantity">Quantity:</label
+                      ><input
+                        type="text"
+                        name="Quantity"
+                        id="qty"
+                        style="width: 70px"
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>
+                      <input
+                        type="checkbox"
+                        name="oversizeContainer"
+                        id="oversize"
+                      /><label for="oversizeContainer"
+                        >Oversize Container?</label
+                      >
+                    </td>
+                  </tr>
+                </table>
+              </fieldset>
+            </div>
+            <div class="col-lg-6">
+              <fieldset class="border p-2">
+                <legend class="w-auto">Output</legend>
+                <table>
+                  <tr>
+                    <td><label for="cost">Cost:</label></td>
+                    <td>
+                      <input type="text" name="costs" id="cost" disabled />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><label for="salesTax">Sales Tax:</label></td>
+                    <td>
+                      <input type="text" name="sales" id="sales" disabled />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label for="shippingAndHandling"
+                        >Shipping and Handling:</label
+                      >
+                    </td>
+                    <td>
+                      <input
+                        type="text"
+                        name="shippingHandling"
+                        id="shippingHandling"
+                        disabled
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><label for="total">Total:</label></td>
+                    <td>
+                      <input type="text" name="aggregate" id="total" disabled />
+                    </td>
+                  </tr>
+                </table>
+              </fieldset>
+            </div>
+          </div>
+          <div class="row" style="margin: 10px">
+            <div class="col-lg-6">
+              <table>
+                <tr>
+                  <td>
+                    <input
+                      type="submit"
+                      class="btn"
+                      name="aggregate"
+                      value="Compute"
+                      style="margin-left: -10px"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="button"
+                      class="btn"
+                      value="New Order"
+                      onclick="document.location.reload(true)"
+                      style="margin-left: 10px"
+                    />
+                  </td>
+                </tr>
+              </table>
+            </div>
+
+            <div class="col-lg-6">
+              <table>
+                <tr>
+                  <td></td>
+                  <td>
+                    <button
+                      style="margin-left: 250px"
+                      class="btn"
+                      type="button"
+                      onclick="formclose()"
+                    >
+                      Exit
+                    </button>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script type="text/javascript" src="toyota.js"></script>
+  </body>
+</html>
